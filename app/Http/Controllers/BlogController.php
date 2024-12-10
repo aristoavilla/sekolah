@@ -11,10 +11,10 @@ class BlogController extends Controller
     public function index()
     {
         $majors = Major::all();
-        $blogs = Blog::latest()->paginate(4);
+        $blogs = Blog::latest()->get();
         $title = 'Home';
 
-        return view('index', compact('blogs', 'title', 'majors'));
+        return view('posts', compact('blogs', 'title', 'majors'));
     }
 
     // Show a single blog post
